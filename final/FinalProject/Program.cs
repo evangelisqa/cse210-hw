@@ -7,7 +7,8 @@ class Program
        DisplayWelcomeMessage();
 
        string userName = GetUserName();
-       int userNumber = GetUserNumber();
+       int userNumber = GetUserName();
+       
 
        int squaredNumber = squareNumber(userNumber);
 
