@@ -21,7 +21,7 @@ class Program
                 numbers.Add(userNumber);
             }
        }
-      // Part 1
+      // Part 1 Compute the sum
        int sum = 0;
        foreach (int number in numbers)
        {
