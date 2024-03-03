@@ -39,8 +39,11 @@ class Program
 
        foreach (int number in numbers)
        {
-          if (number > max)
-       }
+            if (number > max)
+            {   
+               max = number
+            }
+        }
+        Console.WriteLine($"The max is: {max}");
     }
-    Console.WriteLine ($"The max is: {max}");
 }
