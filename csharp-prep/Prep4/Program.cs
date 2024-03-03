@@ -10,19 +10,19 @@ class Program
        int userNumber = -1;
        while (userNumber !=0)
        {
-            Console.Write("Enter a njmber (0 to quit):")
+            Console.Write("Enter a number (0 to quit):");
 
             string userResponse = Console.ReadLine();
             userNumber = int.Parse(userResponse);
 
             // Only add the numer to the list if it not 0
-            if (userNumber !=0)
+            if (userNumber != 0)
             {
                 number.Add(userNumber);
             }
        }
       // Part 1
-       int sum = 0
+       int sum = 0;
        foreach (int number in numbers)
        {
             sum  += number;
