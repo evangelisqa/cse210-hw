@@ -30,7 +30,8 @@ class Program
 
        Console.WriteLine($"The sum is: {sum}");
        
-       //Part 2
+       //Part 2 Compute the average
+       // Before dividing, convert the sum to a floating-point number to maintain decimal precision.
        float average = ((float)sum) / numbers.Count;
        Console.WriteLine($"The average is: {average}");
 
