@@ -4,12 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-       List<int> numbers = new List<int>();
+        List<int> numbers = new List<int>();
 
-       // Keep asking for numbers until the user input 0.
-       int userNumber = -1;
-       while (userNumber !=0)
-       {
+        // Generate a random magic number between 1 and 100 or more
+        int userNumber = -1;
+        while (userNumber != 0)
+        {
             Console.Write("Enter a number (0 to quit):");
 
             string userResponse = Console.ReadLine();
@@ -20,29 +20,29 @@ class Program
             {
                 numbers.Add(userNumber);
             }
-       }
-      // Part 1 Compute the sum
-       int sum = 0;
-       foreach (int number in numbers)
-       {
-            sum  += number;
-       }
+        }
+        // Part 1 Compute the sum
+        int sum = 0;
+        foreach (int number in numbers)
+        {
+            sum += number;
+        }
 
-       Console.WriteLine($"The sum is: {sum}");
-       
-       //Part 2 Compute the average
-       // Before dividing, convert the sum to a floating-point number to maintain decimal precision.
-       float average = ((float)sum) / numbers.Count;
-       Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The sum is: {sum}");
 
-       // Part 3: Find the max
-       
-       int max = numbers[0];
+        //Part 2 Compute the average
+        // Before dividing, convert the sum to a floating-point number to maintain decimal precision.
+        float average = ((float)sum) / numbers.Count;
+        Console.WriteLine($"The average is: {average}");
 
-       foreach (int number in numbers)
-       {
+        // Part 3: Find the max
+
+        int max = numbers[0];
+
+        foreach (int number in numbers)
+        {
             if (number > max)
-            {   
+            {
                 max = number;
             }
         }
