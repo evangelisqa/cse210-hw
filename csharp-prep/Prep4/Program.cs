@@ -19,7 +19,7 @@ class Program
             // Only add the numer to the list if it not 0
             if (userNumber != 0)
             {
-                number.Add(userNumber);
+                numbers.Add(userNumber);
             }
        }
       // Part 1
