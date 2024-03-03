@@ -7,9 +7,9 @@ class Program
         DisplayWelcomeMessage();
 
         string userName = GetUserNumber();
-        int userNumber = GetUserNumber();
+        int userNumber = GetUserName();
 
-        int squaredNumber = squareNumber(userName);
+        int squaredNumber = squareNumber(userNumber);
 
         DisplayResult(userName, squaredNumber);
     }
@@ -41,7 +41,7 @@ class Program
         return square;
     }
     
-    static void DisplayResult (string name. int square)
+    static void DisplayResult(string name, int square)
     {
         Console.WriteLine($"{name}, the square of your number is {square}");
     }
