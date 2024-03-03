@@ -6,7 +6,7 @@ class Program
     {
         DisplayWelcomeMessage();
 
-        string userName = PromptUserName(;)
+        string userName = PromptUserName();
         int userName = PromptUserName();
 
         int squareNumber = squareNumber(userNimber);
@@ -14,9 +14,9 @@ class Program
         DisplayResult(userName, squareNumber);
     }
 
-    static void DisplayWelcomeMessage()
+    static void DisplayWelcomeMessage();
     {
-        Console.WriteLine("Welcome to the program!")
+        Console.WriteLine("Welcome to the program!");
     }
     static string PromptUserName()
     {
