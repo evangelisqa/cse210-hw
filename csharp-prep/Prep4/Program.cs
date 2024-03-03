@@ -6,7 +6,7 @@ class Program
     {
        List<int> numbers = new List<int>();
 
-    
+       // Keep asking for numbers until the user input 0.
        int userNumber = -1;
        while (userNumber !=0)
        {
