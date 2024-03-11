@@ -1,9 +1,18 @@
-using System;
+string filename = 'myFile.txt';
+string[] lines = System.IO FIle.ReadAllLines(filename)
 
-class Program
+using System;
+using System.Collection.Generic;
+Public class Journal
 {
-    static void Main(string[] args)
-    {   
-        Console.WriteLine("What is your name?");
+    public List<Journal Entry> entries;
+    public Journal()
+    {
+        entries = new List<Journal Entry>();
+    }
+    public void AddEntry(JournalEntry entry)
+    {
+        entries.Add(What was the best part of my day?)
     }
 }
+    

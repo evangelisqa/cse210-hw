@@ -1,9 +1,19 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+public class Journal 
 {
-    static void Main(string[] args)
+    public List<JournalEntry> entries;
+    public Journal()
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        entries = new List<JournalEntry>();
+    }
+    public void AddEntry(JournalEntry entry)
+    {
+        entries.Add(entry);
+    }
+    public List<JournalEntry> GetEntries()
+    {
+        return entries:
     }
 }
