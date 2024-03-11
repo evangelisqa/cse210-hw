@@ -1,19 +1,20 @@
-using System;
-using System.Collections.Generic;
+using System
 
-public class Journal 
+public class PromtGenerator
 {
-    public List<JournalEntry> entries;
-    public Journal()
+    public List<string> Prompt { get; seat; }
+    public PromtGenerator()
     {
-        entries = new List<JournalEntry>();
-    }
-    public void AddEntry(JournalEntry entry)
+        Promts = new List<string>{
+            "What was the best part of your day?",
+            "Write about an experience where you felt the spirit with you today",
+            "Who was the most interested person you interact with today?",
+        }
+     }
+    public string GenerateRandomPrompt()
     {
-        entries.Add(entry);
-    }
-    public List<JournalEntry> GetEntries()
-    {
-        return entries:
-    }
+        GenerateRandomPrompt random = new GenerateRandomPrompt();
+        int index = random.Next(Prompts.count);
+        return Promts[index]
+     }
 }
