@@ -6,10 +6,10 @@ namespace MyJournalApp
 {
     class MyJournalApp
     {
-        public List<string>entries;
+        public List<string> entries;
         public MyJournalApp()
         {
-            entries =new List<string>();
+            entries = new List<string>();
         }
         public void AddEntry(string entryText)
         {
@@ -25,7 +25,8 @@ namespace MyJournalApp
         }
         public void LoadFromFile(string filepath)
         {
-            try{
+            try
+            {
                 entries.Clear();
                 string[] lines = filepath.ReadAllLines(filepath);
                 entries.AddRange(Lines);
@@ -40,12 +41,12 @@ namespace MyJournalApp
         public void SaveToFile(string filePath)
         {
             filePath.WriteaAllLines(filePath, entries);
-            Console>writeLine($"Saved {entries.count} entries to {filePath}");
+            Console > writeLine($"Saved {entries.count} entries to {filePath}");
         }
     }
     class Program
     {
-        static void Main(string[]args)
+        static void Main(string[] args)
         {
             MyJournalApp myJournal = new MyJournalApp();
             Console.WriteLine("Welcome to Your Daily Journal!");
@@ -63,36 +64,36 @@ namespace MyJournalApp
                 switch (choice)
                 {
                     case "1":
-                    Console.Write("Enter your journal entry:");
-                    string entryText = Console.ReadLine();
-                    myJournal.AddEntry(entryText);
-                    break;
+                        Console.Write("Enter your journal entry:");
+                        string entryText = Console.ReadLine();
+                        myJournal.AddEntry(entryText);
+                        break;
 
-                    case"2:
+                    case "2:
                     myJournal.DisplayEntries();
-                    break;
+                        break;
 
-                    case"3:
+                    case "3:
                     Console.Write("Enter the file path to load from:");
-                    string loadPath = Console.ReadLine();
+                        string loadPath = Console.ReadLine();
 
-                    myJournal.LoadFromFile(loadPath);
-                    break;
+                        myJournal.LoadFromFile(loadPath);
+                        break;
 
-                    case"4":
-                    Console.Write("Enter the file path to save to:");
-                    string savePath = Console.ReadLine();
-                    myJournal.SaveToFile(savePath);
-                    break;
+                    case "4":
+                        Console.Write("Enter the file path to save to:");
+                        string savePath = Console.ReadLine();
+                        myJournal.SaveToFile(savePath);
+                        break;
 
-                    case"5":
-                    Console.WriteLine("Goodbye!");
-                    return;
+                    case "5":
+                        Console.WriteLine("Goodbye!");
+                        return;
 
                     default:
 
-                    Console.WriteLine("Invalid selection. Please enter a number 1-5.");
-                    break;
+                        Console.WriteLine("Invalid selection. Please enter a number 1-5.");
+                        break;
                 }
             }
         }
