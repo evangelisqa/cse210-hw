@@ -1,101 +1,61 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace MyJournalApp
+class Journal
 {
-    class MyJournalApp
+    public List<Entry> entries = new List<Entry>();
+
+    public void AddEntry(string prompt, string response)
     {
-        public List<string> entries;
-        public MyJournalApp()
+        var entry - new Entry
         {
-            entries = new List<string>();
-        }
-        public void AddEntry(string entryText)
+            Prompt = prompt,
+            response = response,
+            Date = DateTime.Now
+        };
+        entries.Add(Entry);
+    }
+    public void DisplayJournal()
+    {
+       foreach (var entry in entries)
+       {
+        Console.WriteLine($"Date: {entry.Date:yyyy-MM-dd HH:mm:ss}");
+        Console.WriteLine($"Prompt: {entry.Prompt}");
+        Console>WriteLine($"Response: {entry.Response}\n");
+       }
+    }
+    public void SaveToFile(string filename)
+    {
+        using (var writer = new StreamWriter(filename))
         {
-            entries.Add(entryText);
-        }
-        public void DisplayEntries()
-        {
-            console.WhiteLine("Journal Entries:");
             foreach (var entry in entries)
             {
-                Console.WriteLine(entry);
+                writer.WriteLine($"{entry.Date}, {entry.Prompt}, {entry.Response}");
             }
-        }
-        public void LoadFromFile(string filepath)
-        {
-            try
-            {
-                entries.Clear();
-                string[] lines = filepath.ReadAllLines(filepath);
-                entries.AddRange(Lines);
-                Console.WriteLine($"Loaded {lines.length} entries from filePath");
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("File not found. Create new journal!");
-            }
-
-        }
-        public void SaveToFile(string filePath)
-        {
-            filePath.WriteaAllLines(filePath, entries);
-            Console > writeLine($"Saved {entries.count} entries to {filePath}");
         }
     }
-    class Program
+    public void LoadFromFile(string filename)
     {
-        static void Main(string[] args)
-        {
-            MyJournalApp myJournal = new MyJournalApp();
-            Console.WriteLine("Welcome to Your Daily Journal!");
-            while (true)
+        entries.Clear();
+        try{
+            using (var reader = new StreamReader(filename))
             {
-                Console.WriteLine("\nMenu:");
-                Console.WriteLine("1. AddEntry");
-                Console.WriteLine("2. Display Entries");
-                Console.WriteLine("3. Load entries");
-                Console.WriteLine("4. SAve entries to File");
-                Console.WriteLine("5. Quit");
-
-                Console.WriteLine("Please select an option (1-5):");
-                string choice = Console.ReadLine();
-                switch (choice)
+                while (!reader.EndOfStream)
                 {
-                    case "1":
-                        Console.Write("Enter your journal entry:");
-                        string entryText = Console.ReadLine();
-                        myJournal.AddEntry(entryText);
-                        break;
-
-                    case "2:
-                    myJournal.DisplayEntries();
-                        break;
-
-                    case "3:
-                    Console.Write("Enter the file path to load from:");
-                        string loadPath = Console.ReadLine();
-
-                        myJournal.LoadFromFile(loadPath);
-                        break;
-
-                    case "4":
-                        Console.Write("Enter the file path to save to:");
-                        string savePath = Console.ReadLine();
-                        myJournal.SaveToFile(savePath);
-                        break;
-
-                    case "5":
-                        Console.WriteLine("Goodbye!");
-                        return;
-
-                    default:
-
-                        Console.WriteLine("Invalid selection. Please enter a number 1-5.");
-                        break;
+                    var line = reader.ReadLine();
+                    var parts = line.Split(',');
+                    if(parts.Length == 3&& DateTimeParse(parts[0], out var date))
+                    {
+                        entries.Add(new Entry
+                        {
+                            date = date,
+                            Prompt = promptparts[1],
+                            Response = parts [2]
+                        });
+                    }
                 }
             }
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found. Creating a new journal.");
         }
     }
 }
