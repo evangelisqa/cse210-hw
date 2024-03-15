@@ -34,7 +34,8 @@ class Journal
     public void LoadFromFile(string filename)
     {
         entries.Clear();
-        try{
+        try
+        {
             using (var reader = new StreamReader(filename))
             {
                 while (!reader.EndOfStream)
