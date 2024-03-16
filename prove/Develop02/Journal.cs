@@ -7,7 +7,7 @@ class Journal
         var entry - new Entry
         {
             Prompt = prompt,
-            response = response,
+            Response = response,
             Date = DateTime.Now
         };
         entries.Add(Entry);
@@ -18,7 +18,7 @@ class Journal
        {
         Console.WriteLine($"Date: {entry.Date:yyyy-MM-dd HH:mm:ss}");
         Console.WriteLine($"Prompt: {entry.Prompt}");
-        Console>WriteLine($"Response: {entry.Response}\n");
+        Console.WriteLine($"Response: {entry.Response}\n");
        }
     }
     public void SaveToFile(string filename)
@@ -46,8 +46,8 @@ class Journal
                     {
                         entries.Add(new Entry
                         {
-                            date = date,
-                            Prompt = promptparts[1],
+                            Date = date,
+                            Prompt = prompt[1],
                             Response = parts [2]
                         });
                     }
