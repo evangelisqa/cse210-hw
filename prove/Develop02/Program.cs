@@ -27,11 +27,11 @@ class Program
                     var prompt = prompt[new Random().Next(prompts.Count)];
                     Console.Write($" {prompt}:");
                     var response = Console.ReadLine();
-                    Journal.AddEntry(prompt, response);
+                    myJournal.AddEntry(prompt, response);
                     break;
 
                 case "2":
-                    Journal.DisplayJournal():
+                    myJournal.DisplayJournal():
                 break;
 
                 case "3":
