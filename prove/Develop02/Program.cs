@@ -37,7 +37,7 @@ class Program
                 case "3":
                     Console.Write("Enter the filename to save.");
                     var saeFilename = Console.ReadLine();
-                    Journal.Save ToFile(saveFilename);
+                    myJournal.SaveToFile(saveFilename);
                     break;
 
                 case "4":
