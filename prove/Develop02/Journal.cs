@@ -6,9 +6,9 @@ class Journal
     {
         var entry - new Entry
         {
-            Prompt = prompt,
-            Response = response,
-            Date = DateTime.Now
+           Prompt = prompt,
+           Response = response,
+           Date = DateTime.Now
         };
         entries.Add(Entry);
     }
