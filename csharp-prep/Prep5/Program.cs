@@ -1,48 +1,42 @@
 using System;
 
-class Program
+DisplayWelcomeMessage();
+
+string userName = GetUserNumber();
+int userNumber = GetUserName();
+
+int squaredNumber = squareNumber(userNumber);
+
+DisplayResult(userName, squaredNumber);
+
+void DisplayWelcomeMessage()
 {
-    static void Main(string[] args)
-    {
-        DisplayWelcomeMessage();
+    Console.WriteLine("Welcome to the program!");
+}
 
-        string userName = GetUserNumber();
-        int userNumber = GetUserName();
+string GetUserNumber()
+{
+    Console.Write("Please enter your favorite number:");
+    string number = Console.ReadLine();
 
-        int squaredNumber = squareNumber(userNumber);
+    return number;
+}
 
-        DisplayResult(userName, squaredNumber);
-    }
+int GetUserName()
+{
+    Console.Write("Please enter your favorite number:");
+    int number = int.Parse(Console.ReadLine());
 
-    static void DisplayWelcomeMessage()
-    {
-        Console.WriteLine("Welcome to the program!");
-    }
+    return number;
+}
 
-    static string GetUserNumber()
-    {
-        Console.Write("Please enter your favorite number:");
-        string number = Console.ReadLine();
+int squareNumber(int number)
+{
+    int square = number * number;
+    return square;
+}
 
-        return number;
-    }
-
-    static int GetUserName()
-    {
-        Console.Write("Please enter your favorite number:");
-        int number = int.Parse(Console.ReadLine());
-
-        return number;
-    }
-
-    static int squareNumber(int number)
-    {
-        int square = number * number;
-        return square;
-    }
-
-    static void DisplayResult(string name, int square)
-    {
-        Console.WriteLine($"{name}, the square of your number is {square}");
-    }
+void DisplayResult(string name, int square)
+{
+    Console.WriteLine($"{name}, the square of your number is {square}");
 }
