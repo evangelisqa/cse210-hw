@@ -1,0 +1,9 @@
+public class PromGenerator
+{
+    public List<string> _prompts;
+
+    public string GetRandomPrompt()
+    {
+        
+    }
+}

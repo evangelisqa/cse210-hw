@@ -1,10 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-
-class Entry
+public class Entry
 {
-    public string Prompt { get; set; }
-    public string Response { get; set; }
-    public DateTime Date { get; set; }
+    public string _date;
+    public string _promptText;
+    public string _entryText;
+
+    public void Display()
+    {
+        
+    }
 }
