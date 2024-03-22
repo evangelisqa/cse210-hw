@@ -1,11 +1,20 @@
-public class Entry
-{
-    public string _date;
-    public string _promptText;
-    public string _entryText;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-    public void Display()
-    {
+public class Entry {
+    public string _date;
+    public string _promptQuestion;
+    public string _entry;
+
+    public void DisplayEntry () {
+        Console.WriteLine($"{_date} - {_promptQuestion}  \n'{_entry}'\n");
         
     }
+    
+
+ 
+
+
+
 }
