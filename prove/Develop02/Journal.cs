@@ -1,109 +1,54 @@
-using System;
 using System.IO;
-using System.Text;
 
-
-public class Journal 
+public class Journal
 {
-    public List<Entry> _entries = new();
-    public string _fileName;
-    public List<Entry> _temporary = new();
-    public string _loadFileName;
+    public List<Entry> _entries = new List<Entry>();
+    public string _currentTime = DateTime.Now.ToString("dddd, dd MMMM yyyy");
 
-
-    public void DisplayEntries () 
-
-
+    public void NewEntry()
     {
-        Console.WriteLine();
-        Console.WriteLine("1. Display latest entry");
-        Console.Write("2. Display from loaded file\n" );
-        string displayPrompt = Console.ReadLine();
-        int displayPromptIndex = int.Parse(displayPrompt);
-        
-        
-        if (displayPromptIndex == 1)
-        {
-            if (_entries.Count == 0) 
-                 {
-                    Console.WriteLine("Latest entry has been saved. Refer to 'Display from loaded file");
-                    Console.WriteLine();
-                }
+        Entry theEntry = new Entry();
+        Prompt thePrompt = new Prompt();
 
-            else 
-            {
-                foreach (Entry entries in _entries) 
-                    {
-                        Console.WriteLine();
-                        entries.DisplayEntry();
-                    }
-            }
-        }
-         else if (displayPromptIndex == 2)
-        {
-            if (_temporary.Count == 0)
-            {
-                Console.WriteLine("Please Load a file.");
+        theEntry._prompt = thePrompt.GetRandomPrompt();
 
-            }
-            else 
-            {
-                foreach (Entry entries in _temporary)
-                {
-                    entries.DisplayEntry();
-                }
-            }
-            
+        Console.WriteLine(theEntry._prompt);
+        theEntry._response = Console.ReadLine();
+
+        theEntry._currentTime = _currentTime;
+
+        _entries.Add(theEntry);
+
+
+
+    }
+
+    public void DisplayEntries()
+    {
+        foreach (Entry e in _entries)
+        {
+            e.DisplayEntry();
         }
     }
-    public void SaveToFile (List<Entry> entry)
-    {
 
-        if (File.Exists(_fileName))
+    public void SaveFile(string fileName)
+    {
+        using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
-            using StreamWriter updateFile = File.AppendText(_fileName);
-            foreach (Entry a in entry)
+            foreach (Entry e in _entries)
             {
-                updateFile.WriteLine($"{a._date},{a._promptQuestion},{a._entry}");
+                outputFile.WriteLine($"{e._currentTime} | {e._prompt} | {e._response}");
             }
         }
-        
-        else 
-        {
-            using StreamWriter file = new(_fileName);
-            foreach (Entry a in entry)
-
-            {
-
-                file.WriteLine($"{a._date},{a._promptQuestion},{a._entry}");
-            }
-
-        }
     }
-public List<Entry> LoadFile ()
+
+    public void LoadFile(string fileName)
     {
+        string[] lines = System.IO.File.ReadAllLines(fileName);
 
-
-        List<Entry> loadEntry = new();
-        
-        string[] lines = System.IO.File.ReadAllLines(_loadFileName);
-        foreach (string line in lines)
+        foreach (string e in lines)
         {
-            string[] parts = line.Split(",");
-            Entry newEntry = new()
-            {
-                _date = parts[0],
-                _promptQuestion = parts[1],
-                _entry = parts[2]
-            };
-
-            loadEntry.Add(newEntry);
-
+            Console.WriteLine(e);
         }
-        return loadEntry;
     }
-   
-        
-
-        
 }

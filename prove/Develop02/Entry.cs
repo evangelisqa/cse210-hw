@@ -1,20 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
+public class Entry
+{
+    public string _prompt;
+    public string _response;
 
-public class Entry {
-    public string _date;
-    public string _promptQuestion;
-    public string _entry;
+    public string _currentTime;
 
-    public void DisplayEntry () {
-        Console.WriteLine($"{_date} - {_promptQuestion}  \n'{_entry}'\n");
-        
+    public void DisplayEntry()
+    {
+        Console.WriteLine($"{_currentTime} | {_prompt} | {_response}");
+
     }
-    
-
- 
-
-
-
 }
