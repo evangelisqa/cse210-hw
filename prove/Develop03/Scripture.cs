@@ -1,42 +1,39 @@
-using System;
-
-class Scripture
+public class Scripture
 {
-    private string reference;
-    private string text;
-    private List<string> hiddenWords;
+    private string _passage;
+    private List<string> _words;
+    private Word _wordsList;
 
-    public Scripture(string reference, string text)
+    public Scripture(string passage, Word wordsList)
     {
-        this.reference = reference;
-        this.text = text;
-        this.hiddenWords = new List<string>();
+        _passage = passage;
+        _words = _passage.Split(" ").ToList();
+        _wordsList = wordsList;
     }
+
     public void DisplayScripture()
     {
-        Console.WriteLine(reference);
-        string[] words = text.Split(' ');
-        foreach (string word in words)
-        {
-            if (hiddenWords.Contains(word))
-            {
-                Console.Write("___");
-            }
-        }
-        Console.WriteLine();
+        Console.WriteLine(_passage);
     }
+
     public void HideWord()
     {
-        string[]words = text.Split(' ');
-        Random rand = new Random();
-        int index = rand.Next(words.Length);
-        string wordToHide = words[index];
+        if (_wordsList.GetList().Count >= _words.Count)
+        {
+            Environment.Exit(0);
+        }
 
-        hiddenWords.Add(wordToHide);
-    }
-    public bool AllWordsHidden()
-    {
-        string[] words = text.Split(' ');
-        return hiddenWords.Count == words.Length;
+        Random rnd = new Random();
+        int index;
+        do
+        {
+            index = rnd.Next(0, _words.Count());
+        } while (_wordsList.GetList().Contains(index));
+
+        _wordsList.SetToList(index);
+        _words[index] = "_";
+        _passage = string.Join(" ", _words);
+
+        Console.WriteLine(_passage);
     }
 }

@@ -1,10 +1,18 @@
-using System;
-
-
 public class Reference
 {
-   public string _book;
-   public int _chapter;
-   public int _verse;
-   public int _endVerse;
+    private string _book;
+    private int _chapter;
+    private int _vers;
+
+    public Reference(string book, int chapter, int versicle)
+    {
+        _book = book;
+        _chapter = chapter;
+        _vers = versicle;
+    }
+
+    public void DisplayReference()
+    {
+        Console.WriteLine($"{_book} {_chapter}:{_vers}.");
+    }
 }

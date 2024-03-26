@@ -1,42 +1,41 @@
 using System;
-using System.Collections.Generic;
-
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        Scripture scripture = new Scripture ("John 3:16", "For God so loved thecworld that He gave His one and only Son, that whoever 
-        believes in Him shall not perish but have eternal life.");
+        string passage = "And now, I, Moroni, would speak somewhat concerning these things; I would show unto the world that afaith is things which are bhoped for and cnot seen; wherefore, dispute not because ye see not, for ye receive no dwitness until after the trial of your faith.";
+        string book = "Ether";
+        int chapter = 12;
+        int versicle = 6;
+
+        Word wordsList = new Word();
+        Scripture s1 = new Scripture(passage, wordsList);
+        Reference r1 = new Reference(book, chapter, versicle);
+        string userInput = "";
 
         Console.Clear();
-        scripture .DisplayScripture();
+        Console.WriteLine("Welcome to the Scripture memorizer!");
+        Console.WriteLine();
+        r1.DisplayReference();
+        s1.DisplayScripture();
+        Console.WriteLine();
+        Console.Write("Type 'quit' to exit or just press 'enter' to hide a word: ");
+        userInput = Console.ReadLine();
 
-        while (true)
+        while (userInput != "quit")
         {
-            Console.WriteLine("Press enter to hide a word or type wuit to exit:");
-            string userInput = Console.ReadLine();
+            Console.Clear();
+            r1.DisplayReference();
+            s1.HideWord();
+            userInput = Console.ReadLine();
 
-            if (userInput.ToLower() == "quit")
+            if (userInput == "quit")
             {
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                scripture.HideWord();
-                scripture.DisplayScripture();
-
-                if (scripture.AllWordsHidden())
-                {
-                    Console.WriteLine("Congratulations, you have memorized the scripture");
-                    break;
-                }
+                Environment.Exit(0);
             }
         }
 
     }
 }
-
-
-
