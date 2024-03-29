@@ -5,7 +5,7 @@ namespace BreathingActivity
 {
     class Program
     {
-        static void Main(string[]args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Breathing Activity");
             Console.WriteLine("This activity will help you relax by guiding you through slow, deliberate breathing. Clear your mind and focus on your breath.");
@@ -14,7 +14,7 @@ namespace BreathingActivity
             // Get user input for duration (in seconds)
             Console.Write("Enter the duration (in seconds):");
             if
-            (!int. TryParse(Console.ReadLine(), out int duration))
+            (!int.TryParse(Console.ReadLine(), out int duration))
             {
                 Console.WriteLine("Invalid input. Please enter a validd integer for the duration.");
                 return;

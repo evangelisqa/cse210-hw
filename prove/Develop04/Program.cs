@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 class Program
 {
-    static void Main (string[]args)
+    static void Main(string[] args)
     {
         bool stopper = true;
         do
@@ -19,18 +19,18 @@ class Program
             string stringPrompt = Console.ReadLine();
 
             if (stringPrompt == "")
-            stringPrompt = Console.ReadLine();
+                stringPrompt = Console.ReadLine();
 
             int prompt = int.Parse(stringPrompt);
 
-            if (prompt ==4)
+            if (prompt == 4)
             {
                 stopper = false;
             }
             else
             {
 
-                Activity activity = new (prompt);
+                Activity activity = new(prompt);
 
                 activity.DisplayStartingMessage();
 

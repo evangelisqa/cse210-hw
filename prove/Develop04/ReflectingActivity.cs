@@ -6,7 +6,7 @@ namespace ReflectionActivity
 {
     class Program
     {
-        static void Main(string[]args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Reflection Activity.");
             Console.WriteLine("This activity will help you reflect on times in your life when you have shown strngth and resilience.");
@@ -32,7 +32,7 @@ namespace ReflectionActivity
             {
                 "Why was this experience meaningful to you?",
                 "Have you ever done anything like this before?",
-                "Hoe did you get started?",
+                "How did you get started?",
                 "How did you feel when it was complete?",
                 "What made this time different than the other time when you were not as successful?",
                 "What is your favourite thing about this experience?",
@@ -42,11 +42,11 @@ namespace ReflectionActivity
             Random random = new Random();
             while (duration > 0)
             {
-                string prompt = prompts [ random.Next(prompts.Count)];
+                string prompt = prompts[random.Next(prompts.Count)];
                 Console.WriteLine($"\nPrompt: {prompt}\n");
-                Thread.Sleep(2000); 
+                Thread.Sleep(2000);
                 // Pause for 2 sec per question
-                duration -=2;
+                duration -= 2;
 
             }
         }
