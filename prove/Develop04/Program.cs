@@ -1,45 +1,52 @@
 using System;
-using System.Diagnostics;
+using System.Threading;
 
-class Program
+namespace BreathingActivity
 {
-    static void Main(string[] args)
+    class BreathingActivity
     {
-        bool stopper = true;
-        do
+        public BreathingActivity()
         {
-            Console.Clear();
-            Console.WriteLine("Menu Options");
-            Console.WriteLine("1. Start breathing activity.");
-            Console.WriteLine("2. Start reflecting activity.");
-            Console.WriteLine("3. Start listing activity");
-            Console.WriteLine("4. Quit");
-            Console.Write("Select a choice from the menu:");
+        }
 
-            string stringPrompt = Console.ReadLine();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Breathing Activity");
+            Console.WriteLine("This activity will help you relax by guiding you through slow, deliberate breathing. Clear your mind and focus on your breath.");
+            Console.WriteLine("Let's begin:\n");
 
-            if (stringPrompt == "")
-                stringPrompt = Console.ReadLine();
-
-            int prompt = int.Parse(stringPrompt);
-
-            if (prompt == 4)
+            // Get user input for duration (in seconds)
+            Console.Write("Enter the duration (in seconds): ");
+            if (!int.TryParse(Console.ReadLine(), out int duration) || duration <= 0)
             {
-                stopper = false;
+                Console.WriteLine("Invalid input. Please enter a valid positive integer for the duration.");
+                return;
             }
-            else
+
+            Console.WriteLine("\nStarting Message: Take a moment to find a comfortable position. Close your eyes if you'd like. We'll start by inhaling deeply and exhaling slowly.");
+
+            // Each breath cycle takes 4 seconds (2 seconds inhale + 2 seconds exhale)
+            int breathCycleDuration = 4;
+            while (duration >= breathCycleDuration)
             {
+                Console.WriteLine("\nBreath in...");
+                Thread.Sleep(2000); // Pause for 2 seconds
+                Console.WriteLine("Breath out...");
+                Thread.Sleep(2000); // Pause for 2 seconds
 
-                Activity activity = new(prompt);
-
-                activity.DisplayStartingMessage();
-
-                string durationString = Console.ReadLine();
-                int duration = int.Parse(durationString);
-
-                Activity specificActivity = new(prompt, duration);
-                specificActivity.RunActivity();
+                duration -= breathCycleDuration;
             }
-        } while (stopper == true);
+
+            if (duration > 0)
+            {
+                // Handle remaining time
+                Console.WriteLine("\nBreath in...");
+                Thread.Sleep(duration * 1000 / 2); // Pause for remaining seconds (half for inhale)
+                Console.WriteLine("Breath out...");
+                Thread.Sleep(duration * 1000 / 2); // Pause for remaining seconds (half for exhale)
+            }
+
+            Console.WriteLine("\nFinishing Message: Well done! You've completed the breathing activity. Take a moment to notice how you feel. Remember, deep breathing can help reduce stress and promote relaxation.");
+        }
     }
 }
