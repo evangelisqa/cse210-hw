@@ -8,7 +8,7 @@ namespace ListingActivity
 {
     class Program
     {
-        static void Main(string[] args)
+        static void MainB(string[] args)
         {
             Console.WriteLine("Listing Activity");
             Console.WriteLine("This activity will help you reflect on the good things in your life by having you list as many items as you can in args certain area.");

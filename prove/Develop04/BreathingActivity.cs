@@ -6,7 +6,7 @@ namespace BreathingActivity
 {
     class Program
     { 
-      private static void Main(string[]args)
+        private static void MainA(string[]args) 
        
         {
             Console.WriteLine("Breathing Activity");

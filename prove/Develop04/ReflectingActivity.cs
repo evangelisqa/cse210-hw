@@ -6,7 +6,7 @@ namespace ReflectionActivity
 {
     class Program
     {
-        static void Main(string[] args)
+        static void MainC(string[] args)
         {
             Console.WriteLine("Reflection Activity.");
             Console.WriteLine("This activity will help you reflect on times in your life when you have shown strngth and resilience.");
