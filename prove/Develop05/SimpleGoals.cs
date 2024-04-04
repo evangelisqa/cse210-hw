@@ -1,4 +1,4 @@
-ublic class SimpleGoals : Goal
+public class SimpleGoals : Goal
 {
    
     
