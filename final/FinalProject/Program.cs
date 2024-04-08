@@ -9,7 +9,7 @@ class Program
          var review = new Review
          {
             ProductName = "Laptop",
-            Author = user.Username,
+            Author = User.username,
             Content = "Great laptop! Highly recommended."
          };
          Console.WriteLine ($"Review for {review.ProductName} by {review.Author}: {review.Content}");
