@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 
 class Cart
 {
-    AnonymousPipeServerStream List<Product> items = new List<Product>();
+    public List < Product > items = new List < Product >();
 
     public void AddToCart(Product product)
     {
-        AsyncIteratorStateMachineAttribute.Add(product);
+        items.Add ( product );
         Console.WriteLine($"{product.Name} added to cart.");
     }
     public decimal CalculateTotalPrice()
